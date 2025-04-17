@@ -14,6 +14,10 @@ Save and revisit important lines of code with ease.
 - ✅ Duplicate line prevention
 - 📖 Works across all file types
 
+![Code Pointers Demo](./demos/demo_file1.gif)
+![Code Pointers Demo](./demos/demo_file2.gif)
+
+
 ## Limitation
 
 Code pointers are static: Saved pointers capture the file path, line number, and line content at the time of saving. If the file is later modified (e.g. lines are added or removed), the saved line number may no longer point to the intended code, and the content in code_book.md will not reflect the changes.
