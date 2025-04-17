@@ -3,7 +3,7 @@
   "displayName": "Code Pointers",
   "publisher": "PulkitAgrawal",
   "description": "Save and revisit important code lines quickly",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.99.0"
   },

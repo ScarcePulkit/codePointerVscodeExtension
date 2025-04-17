@@ -30,7 +30,8 @@ export function activate(context: vscode.ExtensionContext) {
         // Create VS Code URI for the link
         const fullPath = path.join(workspacePath, relativeFilePath);
         const uri = vscode.Uri.file(fullPath);
-        const linkUri = `vscode://file${uri.path}:${lineNumber}`;
+        // Encode the URI to handle spaces and special characters
+        const linkUri = encodeURI(`vscode://file${uri.path}:${lineNumber}`);
 
         // Modified pointer line with markdown link but hidden URI
         const pointerLine = `${timestamp} [${relativeFilePath}:${lineNumber} | ${lineText}](${linkUri})\n`;
@@ -93,7 +94,9 @@ export function activate(context: vscode.ExtensionContext) {
 
         if (selected) {
             const fullPath = path.join(workspacePath, selected.filePath);
-            const document = await vscode.workspace.openTextDocument(fullPath);
+            // Properly handle paths with spaces
+            const uri = vscode.Uri.file(fullPath);
+            const document = await vscode.workspace.openTextDocument(uri);
             const editor = await vscode.window.showTextDocument(document);
             const position = new vscode.Position(selected.lineNumber - 1, 0);
             editor.selection = new vscode.Selection(position, position);
