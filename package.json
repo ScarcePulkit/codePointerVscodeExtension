@@ -14,6 +14,7 @@
   "categories": [
     "Other"
   ],
+  "icon": "src/images/icon_image.png",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
